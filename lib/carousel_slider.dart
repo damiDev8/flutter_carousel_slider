@@ -312,7 +312,9 @@ class CarouselSliderState extends State<CarouselSlider>
                       carouselState!.realPage.toDouble() - idx.toDouble();
                 }
               }
+              log('fase 1');
               log(itemOffset.abs().toString());
+              log('fase 2');
               log((itemOffset.abs() > 1 ? 1.0 : itemOffset.abs()).toString());
 
               final num distortionRatio =
