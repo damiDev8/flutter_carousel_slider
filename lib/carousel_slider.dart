@@ -180,9 +180,7 @@ class CarouselSliderState extends State<CarouselSlider>
   Widget getGestureWrapper(Widget child) {
     Widget wrapper;
     if (widget.options.height != null) {
-      wrapper = Column(
-        children: [Container(height: widget.options.height, child: child)],
-      );
+      wrapper = Container(height: widget.options.height, child: child);
     } else {
       wrapper =
           AspectRatio(aspectRatio: widget.options.aspectRatio, child: child);
@@ -223,12 +221,8 @@ class CarouselSliderState extends State<CarouselSlider>
 
   Widget getCenterWrapper(Widget child) {
     if (widget.options.disableCenter) {
-      return Column(
-        children: [
-          Container(
-            child: child,
-          )
-        ],
+      return Container(
+        child: child,
       );
     }
     return Center(child: child);
@@ -323,9 +317,9 @@ class CarouselSliderState extends State<CarouselSlider>
               distortionValue =
                   Curves.easeOut.transform(distortionRatio as double);
 
-              distortionValue = distortionValue < 0.8702926468104124
-                  ? 0.8702926468104124
-                  : distortionValue;
+              distortionValue =
+                  distortionValue < 0.8702926468104124 ? 0.8702926468104124 : distortionValue;
+
             }
 
             final double height = widget.options.height ??
@@ -334,9 +328,7 @@ class CarouselSliderState extends State<CarouselSlider>
 
             if (widget.options.scrollDirection == Axis.horizontal) {
               return getCenterWrapper(getEnlargeWrapper(child,
-                  height: distortionValue * height,
-                  scale: distortionValue,
-                  width: distortionValue * MediaQuery.of(context).size.width));
+                  height: distortionValue * height, scale: distortionValue, width: distortionValue * MediaQuery.of(context).size.width));
             } else {
               return getCenterWrapper(getEnlargeWrapper(child,
                   width: distortionValue * MediaQuery.of(context).size.width,
