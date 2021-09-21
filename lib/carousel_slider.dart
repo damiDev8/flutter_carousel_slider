@@ -317,10 +317,11 @@ class CarouselSliderState extends State<CarouselSlider>
               distortionValue =
                   Curves.easeOut.transform(distortionRatio as double);
 
+              log(distortionValue.toString());
+
               distortionValue =
                   distortionValue < 0.8 ? 0.8702926468104124 : distortionValue;
 
-              log(distortionValue.toString());
             }
 
             final double height = widget.options.height ??
