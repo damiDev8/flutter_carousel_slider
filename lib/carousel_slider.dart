@@ -317,8 +317,6 @@ class CarouselSliderState extends State<CarouselSlider>
               distortionValue =
                   Curves.easeOut.transform(distortionRatio as double);
 
-              log(distortionValue.toString());
-
               distortionValue =
                   distortionValue < 0.8702926468104124 ? 0.8702926468104124 : distortionValue;
 
