@@ -1,6 +1,7 @@
 library carousel_slider;
 
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:carousel_slider/carousel_state.dart';
 import 'package:flutter/foundation.dart';
@@ -311,6 +312,7 @@ class CarouselSliderState extends State<CarouselSlider>
                       carouselState!.realPage.toDouble() - idx.toDouble();
                 }
               }
+              log(itemOffset.abs().toString());
               final num distortionRatio =
                   (1 - (itemOffset.abs() > 1 ? 0.0 : itemOffset.abs() * 0.3)).clamp(0.0, 1.0);
               distortionValue =
