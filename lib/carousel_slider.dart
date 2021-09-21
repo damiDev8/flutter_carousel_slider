@@ -180,7 +180,9 @@ class CarouselSliderState extends State<CarouselSlider>
   Widget getGestureWrapper(Widget child) {
     Widget wrapper;
     if (widget.options.height != null) {
-      wrapper = Container(height: widget.options.height, child: child, alignment: Alignment.centerLeft,);
+      wrapper = Column(
+        child: Container(height: widget.options.height, child: child),
+      );
     } else {
       wrapper =
           AspectRatio(aspectRatio: widget.options.aspectRatio, child: child);
@@ -221,8 +223,10 @@ class CarouselSliderState extends State<CarouselSlider>
 
   Widget getCenterWrapper(Widget child) {
     if (widget.options.disableCenter) {
-      return Container(
-        child: child,
+      return Column(
+        child: Container(
+          child: child,
+        ),
       );
     }
     return Center(child: child);
@@ -317,9 +321,9 @@ class CarouselSliderState extends State<CarouselSlider>
               distortionValue =
                   Curves.easeOut.transform(distortionRatio as double);
 
-              distortionValue =
-                  distortionValue < 0.8702926468104124 ? 0.8702926468104124 : distortionValue;
-
+              distortionValue = distortionValue < 0.8702926468104124
+                  ? 0.8702926468104124
+                  : distortionValue;
             }
 
             final double height = widget.options.height ??
@@ -327,12 +331,14 @@ class CarouselSliderState extends State<CarouselSlider>
                     (1 / widget.options.aspectRatio);
 
             if (widget.options.scrollDirection == Axis.horizontal) {
-              return getEnlargeWrapper(child,
-                  height: distortionValue * height, scale: distortionValue, width: distortionValue * MediaQuery.of(context).size.width);
+              return getCenterWrapper(getEnlargeWrapper(child,
+                  height: distortionValue * height,
+                  scale: distortionValue,
+                  width: distortionValue * MediaQuery.of(context).size.width));
             } else {
-              return getEnlargeWrapper(child,
+              return getCenterWrapper(getEnlargeWrapper(child,
                   width: distortionValue * MediaQuery.of(context).size.width,
-                  scale: distortionValue);
+                  scale: distortionValue));
             }
           },
         );
