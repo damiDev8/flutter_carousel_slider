@@ -327,12 +327,12 @@ class CarouselSliderState extends State<CarouselSlider>
                     (1 / widget.options.aspectRatio);
 
             if (widget.options.scrollDirection == Axis.horizontal) {
-              return getCenterWrapper(getEnlargeWrapper(child,
-                  height: distortionValue * height, scale: distortionValue, width: distortionValue * MediaQuery.of(context).size.width));
+              return getEnlargeWrapper(child,
+                  height: distortionValue * height, scale: distortionValue, width: distortionValue * MediaQuery.of(context).size.width);
             } else {
-              return getCenterWrapper(getEnlargeWrapper(child,
+              return getEnlargeWrapper(child,
                   width: distortionValue * MediaQuery.of(context).size.width,
-                  scale: distortionValue));
+                  scale: distortionValue);
             }
           },
         );
