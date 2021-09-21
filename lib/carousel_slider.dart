@@ -312,14 +312,12 @@ class CarouselSliderState extends State<CarouselSlider>
                       carouselState!.realPage.toDouble() - idx.toDouble();
                 }
               }
-              log('fase 1');
-              log(itemOffset.abs().toString());
-              log('fase 2');
-              log((itemOffset.abs() > 1 ? 1.0 : itemOffset.abs()).toString());
-
-              final num distortionRatio = (itemOffset.abs() == 0.0 ? 1.0 : 0.6).clamp(0.0, 1.0);
+              final num distortionRatio =
+                  (1 - (itemOffset.abs() * 0.3)).clamp(0.0, 1.0);
               distortionValue =
                   Curves.easeOut.transform(distortionRatio as double);
+
+              log(distortionValue.toString());
             }
 
             final double height = widget.options.height ??
