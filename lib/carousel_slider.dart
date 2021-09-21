@@ -1,7 +1,6 @@
 library carousel_slider;
 
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:carousel_slider/carousel_state.dart';
 import 'package:flutter/foundation.dart';
@@ -316,12 +315,6 @@ class CarouselSliderState extends State<CarouselSlider>
                   (1 - (itemOffset.abs() * 0.3)).clamp(0.0, 1.0);
               distortionValue =
                   Curves.easeOut.transform(distortionRatio as double);
-
-              log(distortionValue.toString());
-
-              distortionValue =
-                  distortionValue < 0.8702926468104124 ? 0.8702926468104124 : distortionValue;
-
             }
 
             final double height = widget.options.height ??
@@ -330,7 +323,7 @@ class CarouselSliderState extends State<CarouselSlider>
 
             if (widget.options.scrollDirection == Axis.horizontal) {
               return getCenterWrapper(getEnlargeWrapper(child,
-                  height: distortionValue * height, scale: distortionValue, width: distortionValue * MediaQuery.of(context).size.width));
+                  height: distortionValue * height, scale: distortionValue));
             } else {
               return getCenterWrapper(getEnlargeWrapper(child,
                   width: distortionValue * MediaQuery.of(context).size.width,
