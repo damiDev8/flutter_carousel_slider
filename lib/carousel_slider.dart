@@ -320,7 +320,7 @@ class CarouselSliderState extends State<CarouselSlider>
               log(distortionValue.toString());
 
               distortionValue =
-                  distortionValue < 0.8 ? 0.8702926468104124 : distortionValue;
+                  distortionValue < 0.8702926468104124 ? 0.8702926468104124 : distortionValue;
 
             }
 
