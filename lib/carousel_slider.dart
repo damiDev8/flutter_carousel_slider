@@ -180,7 +180,7 @@ class CarouselSliderState extends State<CarouselSlider>
   Widget getGestureWrapper(Widget child) {
     Widget wrapper;
     if (widget.options.height != null) {
-      wrapper = Container(height: widget.options.height, child: child, transform: Matrix4.translationValues(-300.0, 0.0, 0.0));
+      wrapper = Container(height: widget.options.height, child: child, transform: Matrix4.translationValues(-100.0, 0.0, 0.0));
     } else {
       wrapper =
           AspectRatio(aspectRatio: widget.options.aspectRatio, child: child);
