@@ -317,6 +317,9 @@ class CarouselSliderState extends State<CarouselSlider>
               distortionValue =
                   Curves.easeOut.transform(distortionRatio as double);
 
+              distortionValue =
+                  distortionValue < 0.8 ? 0.8702926468104124 : distortionValue;
+
               log(distortionValue.toString());
             }
 
@@ -326,10 +329,7 @@ class CarouselSliderState extends State<CarouselSlider>
 
             if (widget.options.scrollDirection == Axis.horizontal) {
               return getCenterWrapper(getEnlargeWrapper(child,
-                  height: distortionValue * height,
-                  scale: distortionValue < 0.8
-                      ? 0.8702926468104124
-                      : distortionValue));
+                  height: distortionValue * height, scale: distortionValue));
             } else {
               return getCenterWrapper(getEnlargeWrapper(child,
                   width: distortionValue * MediaQuery.of(context).size.width,
