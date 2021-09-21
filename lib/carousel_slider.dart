@@ -181,7 +181,7 @@ class CarouselSliderState extends State<CarouselSlider>
     Widget wrapper;
     if (widget.options.height != null) {
       wrapper = Column(
-        child: Container(height: widget.options.height, child: child),
+        children: [Container(height: widget.options.height, child: child)],
       );
     } else {
       wrapper =
@@ -224,9 +224,11 @@ class CarouselSliderState extends State<CarouselSlider>
   Widget getCenterWrapper(Widget child) {
     if (widget.options.disableCenter) {
       return Column(
-        child: Container(
-          child: child,
-        ),
+        children: [
+          Container(
+            child: child,
+          )
+        ],
       );
     }
     return Center(child: child);
